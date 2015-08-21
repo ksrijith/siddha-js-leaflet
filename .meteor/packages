@@ -7,8 +7,8 @@
 meteor-platform
 autopublish
 insecure
-dburles:google-maps
 agustino:purecss
 mdg:geolocation
 natestrauser:font-awesome
-jeremy:geocomplete
+bevanhunt:leaflet
+herrhelms:meteor-leaflet-locatecontrol

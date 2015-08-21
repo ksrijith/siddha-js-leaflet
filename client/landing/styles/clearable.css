@@ -1,0 +1,11 @@
+.clearable{
+	background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABJ0lEQVRIS+2UO04DQRBEayoFpwQE5BwACfGRT8HXF3DAJ0FyBJgDcArgDhzCiSNiLtJttb0rLcvMdDtw5o176k1X1U7Chr+0YX1sAa7DOYv2SE5E5AmAugqrgQHJdxEZA5DumVIGFyTPReQxABmklL5U9RnAvH+hWsgRSFXcYF6LLkmeFTZxxSMAm8lBTPxTVV9ytkQy6FtpEMvkAcBO47krHt2ghV2RHKrqvqq+ejdvD3kZdDcxW75TSr8iMgq0a3k2CugGetjYdReBRAC7Gc+voxAPYOLWlpznN02Fq5vUACb+oarTSqAGORWR+5JdJUBEvC3ALcmTEiQHsJ7bzd+iVQQwInnc/Cd/HsgsAMABgJ/gS9qOHQGY9a3yQl6T8X98C3AtXADZKYcZyrNfLgAAAABJRU5ErkJggg==) no-repeat right -25px center;
+	transition: background 0.4s;
+}
+.x{
+	background-position: right 5px center; 
+}
+input.onX{
+	cursor: pointer;
+}
+
