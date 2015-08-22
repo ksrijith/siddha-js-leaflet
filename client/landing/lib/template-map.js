@@ -1,19 +1,30 @@
 createLandingMap = function() {
 	L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images';
+	var map = L.map('map-canvas',{zoomControl:false});
 
-	var map = L.map('map-canvas', {
-		doubleClickZoom: false
-	}).setView([49.25044, -123.137], 13);
-
-	map.on('dblclick', function(event) {
-		Markers.insert({
-			latlng: event.latlng
-		});
-	});
 	L.tileLayer.provider('OpenMapSurfer.Roads').addTo(map);
+	//addSearchControl(map);
+	map.addControl(new L.Control.Zoom());
 	addLeafletLocateControl(map);
-
 	landingmap = map;
+};
+
+addSearchControl = function(map) {
+	map.addControl(new L.Control.Search({
+		position: 'topleft',
+		container: 'placessearchbox',
+		url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
+		jsonpParam: 'json_callback',
+		propertyName: 'display_name',
+		propertyLoc: ['lat', 'lon'],
+		autoType: false,
+		tipAutoSubmit: true,
+		autoCollapse: false,
+		autoCollapseTime: 20000,
+		animateLocation: true,
+		markerLocation: true,
+		delayType: 800
+	}));
 };
 
 addLeafletLocateControl = function(map) {
