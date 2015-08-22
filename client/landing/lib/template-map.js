@@ -1,9 +1,15 @@
 createLandingMap = function() {
 	L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images';
-	var map = L.map('map-canvas',{zoomControl:false});
 
-	L.tileLayer.provider('OpenMapSurfer.Roads').addTo(map);
-	//addSearchControl(map);
+	var map = L.map('map-canvas', {
+		zoomControl: false,
+		zoom: 18
+	});
+	L.tileLayer.provider('MapQuestOpen.OSM').addTo(map);
+	//L.tileLayer.provider('OpenMapSurfer.Roads').addTo(map);
+	//L.tileLayer.provider('HikeBike.HikeBike').addTo(map);
+
+	addSearchControl(map);
 	map.addControl(new L.Control.Zoom());
 	addLeafletLocateControl(map);
 	landingmap = map;
@@ -33,7 +39,7 @@ addLeafletLocateControl = function(map) {
 		drawCircle: false, // controls whether a circle is drawn that shows the uncertainty about the location
 		follow: true, // follow the user's location
 		setView: true, // automatically sets the map view to the user's location, enabled if `follow` is true
-		keepCurrentZoomLevel: false, // keep the current map zoom level when displaying the user's location. (if `false`, use maxZoom)
+		keepCurrentZoomLevel: true, // keep the current map zoom level when displaying the user's location. (if `false`, use maxZoom)
 		stopFollowingOnDrag: true, // stop following when the map is dragged if `follow` is true (deprecated, see below)
 		remainActive: false, // if true locate control remains active on click even if the user's location is in view.
 		markerClass: L.circleMarker, // L.circleMarker or L.marker
@@ -57,7 +63,8 @@ addLeafletLocateControl = function(map) {
 			popup: "You are within {distance} {unit} from this point", // text to appear if user clicks on circle
 			outsideMapBoundsMsg: "You seem located outside the boundaries of the map" // default message for onLocationOutsideMapBounds
 		},
-		locateOptions: {} // define location options e.g enableHighAccuracy: true or maxZoom: 10
+		locateOptions: {
+		} // define location options e.g enableHighAccuracy: true or maxZoom: 10
 	}).addTo(map);
 	lc.start();
 };
